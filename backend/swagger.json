@@ -1,0 +1,169 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Xmeme",
+      "description": "Xmeme API's",
+      "contact": {
+        "name": "rdev",
+        "email": "deveshranjan920@gmail.com"
+      }
+    },
+    "host": "api.xmeme.rdev.ninja",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/memes": {
+        "get": {
+          "description": "Returns all current memes stored in the database",
+          "operationId": "getmemes",
+          "responses": {
+            "200": {
+              "description": "A successful api call"
+            },
+            "default": {
+              "description": "unexpected error"
+            }
+          }
+        },
+        "post": {
+          "description": "Creates a new meme in the database",
+          "operationId": "addmemes",
+          "parameters": [
+            {
+              "name": "meme",
+              "in": "body",
+              "description": "name url caption are required",
+              "required": true,
+              "example": {
+                "name" : "string",
+                "url":"string",
+                "caption":"string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A successful api call"
+            },
+            "default": {
+              "description": "unexpected error"
+            }
+          }
+        }
+    },
+    "/memes/{id}": {
+        "get": {
+          "description": "Returns a meme with a particular id",
+          "operationId": "findmemebyid",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of meme",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A successful api call"
+            },
+            "default": {
+              "description": "unexpected error"
+            }
+          }
+        },
+        "patch": {
+          "description": "Updates a meme with particular id",
+          "operationId": "updatememe",
+          "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "description": "ID of meme",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+            },
+            {
+              "name": "meme",
+              "in": "body",
+              "description": "name url caption which one you want to change remove the rest",
+              "required": true,
+              "example": {
+                "name" : "string",
+                "url":"string",
+                "caption":"string"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "successfuly updated"
+            },
+            "default": {
+              "description": "unexpected error"
+            }
+          }
+        }
+      },
+      "/memelike/{id}" : {
+          "post" : {
+            "description": "increase a like of the meme with a particular id with one",
+            "operationId": "increaselike",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "ID of meme",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "A successful api call"
+              },
+              "default": {
+                "description": "unexpected error"
+              }
+            }
+        }
+      },
+      "/memedislike/{id}" : {
+        "post" : {
+          "description": "decrease a like of the meme with a particular id with one",
+          "operationId": "decreaselike",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of meme",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A successful api call"
+            },
+            "default": {
+              "description": "unexpected error"
+            }
+          }
+      }
+    }
+    }
+  }

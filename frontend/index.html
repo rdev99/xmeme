@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xmeme</title>
+    <link rel="icon" href="./assets/favicon.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
+</head>
+<body>
+    <div class="icon">XMEME</div>
+    <div>
+        <div class="row form">
+            <input class="offset-1 form-control col-8 col-sm-2 form1" id="name" type="text" name="name" placeholder="Enter Name">
+            <input class="offset-1 form-control col-8 col-sm-2 form1" id="url" type="text" name="url" placeholder="Enter Url">
+            <input class="offset-1 form-control col-8 col-sm-2 form1" id="caption" type="text" name="caption" placeholder="Enter Caption">
+        </div>
+        <div class="row">
+            <button id="sbtbtm" class="btn btn-danger offset-2 offset-sm-5 bttn" onclick="postdata()">Submit</button>
+            <button class="btn btn-success offset-1 bttn"><a target=”_blank” class="link_swagger" href="https://swagger.xmeme.rdev.ninja/swagger-ui" >Swagger</a></button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="page1">
+    </div>
+    <script src="./scripts/moment.min.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
